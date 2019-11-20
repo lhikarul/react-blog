@@ -50,7 +50,16 @@ export const NavItem = styled.div `
 export const SearchWrapper = styled.div `
     position: relative;
     float: left;
-    .icofont {
+    .slide-enter,.slide-exit {
+        transition: all .2s ease-out;
+    }
+    .slide-enter-active {
+        width: 240px;
+    }
+    .slide-exit-active {
+        width: 160px;
+    }
+    .icofont-search {
         border-radius: 15px;
         width: 30px;
         line-height: 30px;
@@ -58,6 +67,10 @@ export const SearchWrapper = styled.div `
         right: 5px;
         bottom: 5px;
         text-align: center;
+        &.focused {
+            background: #777;
+            color: #fff;
+        }
     }
 `
 
@@ -69,14 +82,18 @@ export const NavSearch = styled.input.attrs({
     margin-left: 20px;
     border-radius: 19px;
     border: none;
-    padding: 0 20px;
+    padding: 0 35px 0 20px;
     outline: none;
     width: 160px;
     height: 38px;
     background: #eee;
+    color: #777;
     font-size: 14px;
     &::placeholder {
         color: #999;
+    }
+    &.focused {
+        width: 240px;
     }
 `
 
