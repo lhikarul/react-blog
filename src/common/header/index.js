@@ -8,7 +8,10 @@ import  {actionCreators} from './store';
 class Header extends React.Component {
 
     renderListArea () {
-        if (this.props.focused) {
+
+        const {focused, list} = this.props;
+
+        if (focused) {
             return (
                 <SearchInfo>
                     <SearchInfoTitle>
@@ -18,7 +21,7 @@ class Header extends React.Component {
     
                     <SearchInfoList>
                         {
-                            this.props.list.map((item) => {
+                            list.map((item) => {
                             return <SearchInfoItem key={item}>{item}</SearchInfoItem>
                             })
                         }
@@ -31,6 +34,7 @@ class Header extends React.Component {
     }
 
     render () {
+        const {focused,handleInputFocus,handleInputBlur} = this.props;
         return (
             <HeaderWrapper>
                 <Logo />
@@ -41,18 +45,18 @@ class Header extends React.Component {
                     <NavItem className="right"><i className="icofont-font"></i></NavItem>
                     <SearchWrapper>
                         <CSSTransition
-                            in={this.props.focused}
+                            in={focused}
                             timeout={200}
                             classNames="slide"
                         >
                             <NavSearch 
-                                className={this.props.focused ? 'focused' : ''}
-                                onFocus={this.props.handleInputFocus}
-                                onBlur={this.props.handleInputBlur}
+                                className={focused ? 'focused' : ''}
+                                onFocus={handleInputFocus}
+                                onBlur={handleInputBlur}
                             >        
                             </NavSearch>
                         </CSSTransition>
-                        <i className={this.props.focused ? 'icofont icofont-search' : 'icofont-search'}></i>
+                        <i className={focused ? 'icofont icofont-search' : 'icofont-search'}></i>
                         {this.renderListArea()}
                     </SearchWrapper>
                 </Nav>
