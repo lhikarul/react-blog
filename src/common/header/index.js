@@ -9,22 +9,28 @@ class Header extends React.Component {
 
     renderListArea () {
 
-        const {focused, list} = this.props;
+        const {focused, list, page,totalPage, mouseIn, handleMouseEnter, handleMouseLeave, handleChangePage} = this.props;
+        const newList = list.toJS();
 
-        if (focused) {
+        const pageList = [];
+
+        for (let i = (page - 1) * 3; i < page * 3; i++) {
+            pageList.push(<SearchInfoItem key={i}>{newList[i]}</SearchInfoItem>)
+        }
+
+        if (focused || mouseIn) {
             return (
                 <SearchInfo>
-                    <SearchInfoTitle>
+                    <SearchInfoTitle 
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                    >
                         熱門搜索
-                        <SearchInfoSwitch>換一個</SearchInfoSwitch>
+                        <SearchInfoSwitch onClick={() => handleChangePage(page,totalPage)}>換一個</SearchInfoSwitch>
                     </SearchInfoTitle>
     
                     <SearchInfoList>
-                        {
-                            list.map((item) => {
-                            return <SearchInfoItem key={item}>{item}</SearchInfoItem>
-                            })
-                        }
+                        {pageList}
                     </SearchInfoList>
                 </SearchInfo>
             )
@@ -72,8 +78,10 @@ class Header extends React.Component {
 const mapStateToProps = state => {
     return {
         focused: state.getIn(['header', 'focused']),
-        list: state.getIn(['header', 'list'])
-        // focused: state.get('header').get('focused')
+        list: state.getIn(['header', 'list']),
+        totalPage: state.getIn(['header', 'totalPage']),
+        page: state.getIn(['header','page']),
+        mouseIn: state.getIn(['header','mouseIn'])
     }
 }
 
@@ -85,6 +93,20 @@ const mapDispatchToProps = dispatch => {
         },
         handleInputBlur () {
             dispatch(actionCreators.searchBlur());
+        },
+        handleMouseEnter () {
+            dispatch(actionCreators.mouseEnter());
+        },
+        handleMouseLeave () {
+            dispatch(actionCreators.mouseLeave());
+        },
+        handleChangePage (page,totalPage) {
+            if (page + 1 < totalPage) {
+                dispatch(actionCreators.changePage(page + 1))
+            }else {
+                dispatch(actionCreators.changePage(1))
+            }
+           
         }
     }
 }
