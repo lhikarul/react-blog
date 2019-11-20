@@ -3,12 +3,17 @@ import Header from './common/header';
 import {GlobalStyle} from './style';
 import './statics/iconfont/icofont.css';
 
+import {Provider} from 'react-redux';
+import store from './store';
+
 
 function App() {
   return (
     <div>
       <GlobalStyle />
-       <Header />
+      <Provider store={store}>
+          <Header />
+      </Provider>
     </div>
   );
 }
