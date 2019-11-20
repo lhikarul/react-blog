@@ -50,15 +50,7 @@ export const NavItem = styled.div `
 export const SearchWrapper = styled.div `
     position: relative;
     float: left;
-    .slide-enter,.slide-exit {
-        transition: all .2s ease-out;
-    }
-    .slide-enter-active {
-        width: 240px;
-    }
-    .slide-exit-active {
-        width: 160px;
-    }
+
     .icofont-search {
         border-radius: 15px;
         width: 30px;
@@ -77,6 +69,15 @@ export const SearchWrapper = styled.div `
 export const NavSearch = styled.input.attrs({
     placeholder: '搜索'
 })`
+    &.slide-enter,&.slide-exit {
+        transition: all .2s ease-out;
+    }
+    &.slide-enter-active {
+        width: 240px;
+    }
+    &.slide-exit-active {
+        width: 160px;
+    }
     box-sizing: border-box;
     margin-top: 9px;
     margin-left: 20px;
