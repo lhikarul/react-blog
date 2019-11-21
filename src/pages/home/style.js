@@ -102,3 +102,16 @@ export const WriterWrapper = styled.div`
     line-height: 300px;
     text-align: center;
 `
+
+// ----- load more ------ //
+export const LoadMore = styled.div`
+    margin: 30px 0;
+    border-radius: 20px;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background: #a5a5a5;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+`
