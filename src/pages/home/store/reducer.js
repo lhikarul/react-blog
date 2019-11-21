@@ -5,10 +5,12 @@ const defaultState = fromJS({
     topicList: [],
     articleList: [],
     recommendList: [],
-    articlePage: 1
+    articlePage: 1,
+    showScroll: false
 })
 
 export default (state = defaultState, action) => {
+
     switch(action.type) {
         case actionTypes.CHANGE_HOME_DATA:
             return state.merge({
@@ -17,12 +19,12 @@ export default (state = defaultState, action) => {
                 recommendList: fromJS(action.recommendList)
             })
         case actionTypes.ADD_ARTICLE_LIST:
-            // return state;
-            // return state.set('articleList', state.get('articleList').concat(action.list))
             return state.merge({
                 'articleList': state.get('articleList').concat(action.list),
                 'articlePage': action.nextPage
             })
+        case actionTypes.TOGGLE_SCROLL_TOP:
+            return state.set('showScroll', action.show)
         default:
             return state;
     }

@@ -31,3 +31,10 @@ export const getHomeInfo = () => {
         dispatch(changeHomeData(res.data.data))
     }
 }
+
+export const toggleTopShow = (isShow) => {
+    return {
+        type: actionTypes.TOGGLE_SCROLL_TOP,
+        show: isShow
+    }
+}
