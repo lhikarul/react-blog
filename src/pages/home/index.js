@@ -14,7 +14,7 @@ class Home extends React.Component {
         return (
             <HomeWrapper>
                 <HomeLeft>
-                    <img className="banner-img" src="https://previews.123rf.com/images/gmast3r/gmast3r1711/gmast3r171101496/90835439-happy-new-year-2018-horizontal-banner-with-chinese-lanterns-and-dog-decoration-design-vector-illustr.jpg" alt=""/>
+                    <img className="banner-img" src="http://ichef.bbci.co.uk/images/ic/1248xn/p07lsjz1.jpg" alt=""/>
                     <Topic></Topic>
                     <List></List>
                 </HomeLeft>
