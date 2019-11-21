@@ -85,6 +85,7 @@ export const SearchInfoTitle = styled.div`
 export const SearchInfoSwitch = styled.span`
     float: right;
     font-size: 13px;
+    cursor: pointer;
     .fa-circle-notch {
         display: block;
         float: left;
