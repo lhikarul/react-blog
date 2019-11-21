@@ -5,13 +5,14 @@ import {TopicWrapper,TopicItem} from '../style';
 class Topic extends React.Component {
     render () {
         const {list} = this.props;
+
         return (
             <TopicWrapper>
                 {
                     list.map((item) => {
                         return (
                             <TopicItem key={item.get('id')}>
-                                <img className="topic-pic" src={item.get('imgUrl')}></img>
+                                <img className="topic-pic" src={item.get('imgUrl')} alt=""></img>
                                 {item.get('title')}
                             </TopicItem>
                         )

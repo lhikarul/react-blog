@@ -22,9 +22,10 @@ export const HomeRight = styled.div`
     float: right;
 `
 
-// Topic
+// ------------- Topic ----------------- //
 export const TopicWrapper = styled.div`
     margin-left: -10px;
+    border-bottom: 1px solid #dcdcdc;
     padding: 20px 0 10px 0;
     overflow: hidden;
 `
@@ -47,5 +48,34 @@ export const TopicItem = styled.div`
         float: left;
         width: 32px;
         height: 32px;
+    }
+`
+
+// -------- List -------------- //
+export const ListItem = styled.div `
+    border-bottom: 1px solid #dcdcdc;
+    padding: 20px 0;
+    overflow: hidden;
+    .pic {
+        display: block;
+        float: right;
+        width: 125px;
+        height: 100px;
+    }
+`
+
+export const ListInfo = styled.div`
+    width: 500px;
+    float: left;
+    .title {
+        line-height: 27px;
+        color: #333;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .desc {
+        line-height: 24px;
+        font-size: 13px;
+        color: #999;
     }
 `
