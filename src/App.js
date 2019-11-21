@@ -15,15 +15,15 @@ function App() {
     <div>
       <GlobalStyle />
       <Provider store={store}>
-        <div>
-          <Header />
+
           <BrowserRouter>
             <div>
+              <Header />
               <Route path='/' exact component={Home}></Route>
               <Route path='/detail' exact component={Detail}></Route>
             </div>
           </BrowserRouter>
-        </div>
+
       </Provider>
     </div>
   );

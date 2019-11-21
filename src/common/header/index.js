@@ -2,6 +2,7 @@ import React from 'react';
 import {CSSTransition} from 'react-transition-group'
 import {HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWrapper,SearchInfo,SearchInfoTitle,SearchInfoSwitch,SearchInfoList, SearchInfoItem} from './headerCss';
 import {connect} from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import  {actionCreators} from './store';
 
@@ -43,7 +44,9 @@ class Header extends React.Component {
         const {focused, list ,handleInputFocus,handleInputBlur} = this.props;
         return (
             <HeaderWrapper>
-                <Logo />
+                <Link to="/">
+                    <Logo  />
+                </Link>
                 <Nav>
                     <NavItem className="left active">首頁</NavItem>
                     <NavItem className="left">下載App</NavItem>
