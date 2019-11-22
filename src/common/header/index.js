@@ -76,7 +76,7 @@ class Header extends React.Component {
                     </SearchWrapper>
                 </Nav>
                 <Addition>
-                    <Button className="writing"><i className="icofont-quill-pen"></i> 寫文章</Button>
+                    <Link to="/write"><Button className="writing"><i className="icofont-quill-pen"></i> 寫文章</Button></Link>
                     <Button className="reg">註冊</Button>
                 </Addition>
             </HeaderWrapper>
